@@ -1,6 +1,6 @@
 name: PR Sanity Check
 
-on: 
+on:
   pull_request:
   # https://github.com/mshick/add-pr-comment/issues/25
   pull_request_target:
@@ -22,20 +22,20 @@ jobs:
             https://githubbox.com/${{ github.repository }}/tree/${{ github.head_ref }}
 
   lint:
-     runs-on: ubuntu-latest
-     steps:
-       - name: Checkout
-         uses: actions/checkout@v4
-  
-       - name: Install Packages
-         run: |
-           npm install
-           echo "Dependencies installed"
-  
-       - name: Lint check
-         run: |
-           npm run lint
-  
-       - name: Lint check
-         run: |
-           npm run test -- --passWithNoTests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Packages
+        run: |
+          npm install
+          echo "Dependencies installed"
+
+      - name: Lint check
+        run: |
+          npm run lint
+
+      - name: Lint check
+        run: |
+          npm run test -- --passWithNoTests
